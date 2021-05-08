@@ -41,7 +41,7 @@ public class PingResource {
 
         //sort on price
         List<Campaign> matchedCountries =
-        campaigns.stream().filter(cmp -> cmp.getTargetedCountries().contains(bidderCountry)).sorted(Comparator.comparingDouble(Campaign::getPrice)).collect(Collectors.toList());
+        campaigns.stream().filter(cmp -> cmp.getTargetedCountries().contains(bidderCountry)).sorted(Comparator.comparingDouble(Campaign::getPrice).reversed()).collect(Collectors.toList());
 
         //check which response to send
         if(matchedCountries.isEmpty()) {
